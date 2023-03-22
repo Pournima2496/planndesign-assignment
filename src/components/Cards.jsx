@@ -19,8 +19,8 @@ const Cards = ({ drawing }) => {
           <Typography gutterBottom variant="h5" component="div">
             {drawing.title}
           </Typography>
-          {drawing.drawing_categories.map((desc) => (
-            <Typography variant="body2" color="text.secondary">
+          {drawing.drawing_categories.map((desc, index) => (
+            <Typography variant="body2" color="text.secondary" key={index} >
               {desc.description.substring(0, 99)+"..."}
             </Typography>
           ))}

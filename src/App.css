@@ -1,4 +1,15 @@
-*{
+* {
   margin: 0;
   padding: 0;
+}
+.nav {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+a {
+  text-decoration: none;
+}
+.link{
+  color: #999;
 }
