@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   Box,
   Button,
@@ -41,29 +41,38 @@ const DrawingInfo = () => {
       <Grid container spacing={1}>
         {/* Left Side */}
         <Grid item xs={12} sm={8}>
-          <Typography variant="h4">{draw.title}</Typography>
-          <img src="" width="100%" alt="" />
-          {/* {draw.drawing_categories.map((desc, ind) => {
+          <Typography variant="h4" className="title">
+            {draw.title}
+          </Typography>
+          <img src={draw.image.url} width="100%" alt="" style={{margin:"30px 0"}} />
+          {draw.drawing_categories.map((desc, ind) => {
             return <Typography key={ind}>{desc.description}</Typography>;
-          })} */}
+          })}
         </Grid>
 
         {/* Right Side */}
 
         <Grid item xs={12} sm={4}>
           <Typography>Autocad Design</Typography>
-          <Typography>
+          <Typography sx={{ display: "flex", gap: ".5rem" }}>
             <AccountCircleIcon />
-           {/* By {draw.author.email} */}
+            By<Link className="link">{draw.author.email}</Link>
           </Typography>
-          {/* {draw.drawing_categories.map((desc, ind) => {
+          {draw.drawing_categories.map((desc, ind) => {
             return <Typography key={ind}>{desc.description}</Typography>;
-          })} */}
+          })}
 
           <Box m={2}>
             <Button
               variant="contained"
-              sx={{ width: "100%", padding: "10px", margin: "10px 0px" }}
+              sx={{
+                width: "100%",
+                padding: "10px",
+                margin: "10px 0px",
+                backgroundColor: "#4a6cf7",
+                color: "#fff",
+                fontWeight: 600,
+              }}
             >
               Download Drawing
             </Button>
@@ -71,7 +80,7 @@ const DrawingInfo = () => {
             <List sx={{ borderTop: "1px solid black" }}>
               <StyledListItems>
                 Size
-                {/* <Typography> {draw.drawing_file.size}k</Typography> */}
+                <Typography> {draw.drawing_file.size}k</Typography>
               </StyledListItems>
               <StyledListItems>
                 <Typography>Type</Typography>
@@ -79,24 +88,38 @@ const DrawingInfo = () => {
               </StyledListItems>
               <StyledListItems>
                 Category
-                {/* {draw.drawing_categories.map((cat, ind) => (
+                {draw.drawing_categories.map((cat, ind) => (
                   <Typography key={ind}>{cat.name}</Typography>
-                ))} */}
+                ))}
               </StyledListItems>
               <StyledListItems>
                 Software
-                {/* {draw.drawing_softwares.map((software, ind) => (
+                {draw.drawing_softwares.map((software, ind) => (
                   <Typography key={ind}>{software.name}</Typography>
-                ))} */}
+                ))}
               </StyledListItems>
               <StyledListItems>
                 Collection Id
-                {/* <Typography>{draw.id}</Typography> */}
+                <Typography>{draw.id}</Typography>
               </StyledListItems>
               <StyledListItems>
                 Published On
-                {/* <Typography>{draw.published_at}</Typography> */}
+                <Typography>
+                  {new Date(draw.published_at).toLocaleDateString()}
+                </Typography>
               </StyledListItems>
+            </List>
+          </Box>
+          <Box m={2} >
+            <Typography variant="h6">Search By Tags</Typography>
+            <List sx={{ display: "flex", gap: ".5rem", flexWrap: "wrap" }}>
+              {draw.tags.map((tag) => (
+                <ListItem
+                  sx={{ backgroundColor: "#1d2144", borderRadius: "15px" }}
+                >
+                  <Link style={{ color: "#fff" }}>{tag.name}</Link>
+                </ListItem>
+              ))}
             </List>
           </Box>
         </Grid>

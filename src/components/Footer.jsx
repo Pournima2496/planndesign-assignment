@@ -50,8 +50,8 @@ const Footer = () => {
       >
         <Grid item xs={12} sm={4} md={4}>
           <img src={logo} alt="" width="200px" />
-          <Typography>
-            &copy;2023 Copyright:<Link className="link">planndesign.com</Link>
+          <Typography sx={{display:"flex"}}>
+            &copy; 2023 Copyright: &nbsp;<Link className="link"> planndesign.com</Link>
           </Typography>
         </Grid>
         <Grid item xs={12} sm={4} md={4}>
@@ -85,34 +85,34 @@ const Footer = () => {
         </Grid>
         <Grid item xs={12} sm={4} md={4}>
           {/* Icons */}
-
-          <Typography>Follow Us</Typography>
-          <Box
-            sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-evenly",
-              gap: "1rem",
-              margin: "20px 0",
-              width: { xs: "80%", sm: "50%" },
-            }}
-          >
-            {icons.map((icon) => (
-              <Link className="link">{icon}</Link>
-            ))}
-          </Box>
-          <Typography>
-            <Link className="link">About us</Link>
-          </Typography>
-          <Box>
+          <Box sx={{marginLeft:{xs:"20px", sm:"180px"}}}>
+            <Typography>Follow Us</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-evenly",
+                gap: "1rem",
+                margin: "20px 0",
+              }}
+            >
+              {icons.map((icon) => (
+                <Link className="link">{icon}</Link>
+              ))}
+            </Box>
             <Typography>
-              <HomeIcon />
-              Jaypee Klassic, Noida
+              <Link className="link">About us</Link>
             </Typography>
-            <Typography>
-              <MailIcon />
-              info@planndesign.com
-            </Typography>
+            <Box>
+              <Typography sx={{display:"flex", justifyContent:"space-between"}}>
+                <HomeIcon />
+                Jaypee Klassic, Noida
+              </Typography>
+              <Typography sx={{display:"flex", justifyContent:"space-between"}}>
+                <MailIcon />
+                info@planndesign.com
+              </Typography>
+            </Box>
           </Box>
         </Grid>
       </Grid>

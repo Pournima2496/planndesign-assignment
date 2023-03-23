@@ -48,7 +48,7 @@ const Home = () => {
                       alt="green iguana"
                     />
                     <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
+                      <Typography gutterBottom variant="h5" component="div" className="heading">
                         {item.title}
                       </Typography>
                       {item.drawing_categories.map((desc, index) => (

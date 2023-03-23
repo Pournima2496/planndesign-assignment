@@ -43,7 +43,7 @@ const DrawingList = () => {
                       alt="green iguana"
                     />
                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
+                      <Typography gutterBottom variant="h5" component="div" className="heading">
                         {item.title}
                       </Typography>
                       {item.drawing_categories.map((desc, index) => (
@@ -81,7 +81,7 @@ const DrawingList = () => {
                 alt="green iguana"
               />
               <CardContent>
-                <Typography variant="h6" component="div">
+                <Typography variant="h6" component="div" className="heading">
                   {item.title}
                 </Typography>
               </CardContent>
@@ -89,6 +89,50 @@ const DrawingList = () => {
           </Link>
         ))}
       </Grid>
+
+      {/* Bottom */}
+      <Grid item xs={12} sm={12}>
+        <Typography variant="h5" >Latest Drawing</Typography>
+        <hr style={{border: "1px solid blue", margin:"20px 0", width:"10%"}}/>
+        <Grid
+          container
+          spacing={{ xs: 4, md: 3 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}
+          alignItems="center"
+        >
+          {drawing.splice(0, 6).map((item, index) => {
+            return (
+              <Grid item xs={8} sm={4} md={4} key={index}>
+                <Link to={`drawing/${item.id}`}>
+                  <Card sx={{ maxWidth: "100%", height:"420px" }}>
+                    <CardMedia
+                      component="img"
+                      height="210"
+                      image={item.image.formats.thumbnail.url}
+                      alt="green iguana"
+                    />
+                   <CardContent>
+                      <Typography gutterBottom variant="h5" component="div" className="heading">
+                        {item.title}
+                      </Typography>
+                      {item.drawing_categories.map((desc, index) => (
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          key={index}
+                        >
+                          {desc.description.substring(0, 100) + "..."}
+                        </Typography>
+                      ))}
+                    </CardContent>
+                  </Card>
+                </Link>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Grid>
+   
     </Grid>
   );
 };

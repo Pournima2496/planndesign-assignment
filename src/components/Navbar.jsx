@@ -7,6 +7,7 @@ import InputBase from "@mui/material/InputBase";
 import { List, ListItem } from "@mui/material";
 import logo from "../assets/pndlogo.png";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { Link } from "react-router-dom";
 const Navstyling = {
   navbar: {
     backgroundColor: "transparent",
@@ -33,21 +34,35 @@ export default function Navbar() {
             }}
           >
             <ListItem>
-              <img src={logo} alt="" width="150px" />
+              <Link>
+                <img src={logo} alt="" width="150px" />
+              </Link>
             </ListItem>
             <ListItem>
-              Drawing Store <KeyboardArrowDownIcon />
+              <Link>
+                Drawing Store <KeyboardArrowDownIcon />
+              </Link>
             </ListItem>
             <ListItem>
-              Design Ideas <KeyboardArrowDownIcon />
+              <Link>
+                Design Ideas <KeyboardArrowDownIcon />
+              </Link>
             </ListItem>
             <ListItem>
-              Buying Guide <KeyboardArrowDownIcon />
+              <Link>
+                Buying Guide <KeyboardArrowDownIcon />
+              </Link>
             </ListItem>
-            <ListItem>Videos</ListItem>
-            <ListItem>Portfolio</ListItem>
             <ListItem>
-              Login <KeyboardArrowDownIcon />
+              <Link>Videos</Link>
+            </ListItem>
+            <ListItem>
+              <Link>Portfolio</Link>
+            </ListItem>
+            <ListItem>
+              <Link>
+                Login <KeyboardArrowDownIcon />
+              </Link>
             </ListItem>
             <ListItem>
               <Search placeholder="Search" />
